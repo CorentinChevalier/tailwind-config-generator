@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        @apply text-black bg-white font-inter;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply m-0 min-w-[320px] min-h-[100vh];
+    }
+
+    #app {
+        @apply flex flex-col justify-center items-center min-h-[100vh];
+    }
+
+    .logo {
+        height: 10em;
+        padding: 1.5em;
+        will-change: filter;
+        transition: filter 300ms;
+    }
+    .logo:hover {
+        filter: drop-shadow(0 0 2em #646cffaa);
+    }
+    .logo.svelte:hover {
+        filter: drop-shadow(0 0 2em #ff3e00aa);
+    }
+
+    h1 {
+        @apply text-xl;
+    }
+}
