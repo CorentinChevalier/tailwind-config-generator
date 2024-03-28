@@ -4,7 +4,7 @@
 
 @layer base {
     :root {
-        @apply text-black bg-white font-inter;
+        @apply text-raisin-black bg-ghost-white font-inter;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -16,7 +16,23 @@
     }
 
     #app {
-        @apply flex flex-col justify-center items-center min-h-[100vh];
+        @apply flex flex-col items-center justify-between min-h-[100vh] text-base;
+    }
+
+    a {
+        @apply hover:underline hover:underline-offset-2 hover:font-medium;
+    }
+
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
     }
 
     .logo {
@@ -30,9 +46,5 @@
     }
     .logo.svelte:hover {
         filter: drop-shadow(0 0 2em #ff3e00aa);
-    }
-
-    h1 {
-        @apply text-xl;
     }
 }
