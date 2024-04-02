@@ -1,8 +1,8 @@
 <script lang="ts">
-    import svelteLogo from './assets/svelte.svg'
+    import Code from './lib/Code.svelte'
     import Footer from './lib/Footer.svelte'
+    import Form from './lib/Form.svelte'
     import Header from './lib/Header.svelte'
-    import viteLogo from '/vite.svg'
 </script>
 
 <svelte:head>
@@ -14,15 +14,12 @@
 </svelte:head>
 
 <Header />
-<main class='flex flex-col justify-center items-center w-[600px] gap-4'>
-    <div class='flex flex-row justify-center'>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            <img src={viteLogo} class="logo" alt="Vite Logo" />
-          </a>
-          <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-            <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-          </a>
+<main class='w-full flex flex-row flex-1 justify-start gap-8 p-10'>
+    <div class='flex flex-1'>
+        <Form />
     </div>
-    <h1>Vite + Svelte</h1>
+    <div class='flex justify-end'>
+        <Code />
+    </div>
 </main>
 <Footer />

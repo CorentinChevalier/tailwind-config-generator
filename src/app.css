@@ -24,27 +24,25 @@
     }
 
     h1 {
-        @apply text-3xl;
+        @apply text-3xl py-2;
     }
 
     h2 {
-        @apply text-2xl;
+        @apply text-2xl py-2;
     }
 
     h3 {
-        @apply text-xl;
+        @apply text-xl py-2;
     }
 
-    .logo {
-        height: 10em;
-        padding: 1.5em;
-        will-change: filter;
-        transition: filter 300ms;
+    input[type=text] {
+        appearance: none !important;
+        @apply  bg-white m-2 p-2 rounded-lg;
     }
-    .logo:hover {
-        filter: drop-shadow(0 0 2em #646cffaa);
+    input[type=text]:hover {
+        @apply outline outline-medium-slate-blue;
     }
-    .logo.svelte:hover {
-        filter: drop-shadow(0 0 2em #ff3e00aa);
+    input[type=text]:focus {
+        @apply outline-2 outline-medium-slate-blue;
     }
 }
