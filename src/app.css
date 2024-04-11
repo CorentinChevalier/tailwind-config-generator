@@ -35,14 +35,32 @@
         @apply text-xl py-2;
     }
 
+    hr {
+        @apply my-8
+    }
+
+    /*outline effect on interaction elements*/
+    input[type=text]:focus, a:focus, button[type=button]:focus {
+        @apply outline-2 outline-offset-2 outline-medium-slate-blue;
+    }
+
     input[type=text] {
         appearance: none !important;
-        @apply  bg-white m-2 p-2 rounded-lg;
+        @apply  border bg-white m-2 p-2 rounded-lg;
     }
     input[type=text]:hover {
         @apply outline outline-medium-slate-blue;
     }
-    input[type=text]:focus {
-        @apply outline-2 outline-medium-slate-blue;
+
+    button[type=button] {
+        appearance: none !important;
+        @apply bg-medium-slate-blue text-white self-center p-2 rounded-md flex justify-center items-center
+    }
+    button[type=button]:hover {
+        @apply drop-shadow-lg
+    }
+    button[type=button]:active {
+        box-shadow: inset 0px 1px 2em -1em black;
+        @apply drop-shadow-none
     }
 }

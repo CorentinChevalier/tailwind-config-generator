@@ -15,10 +15,10 @@
 
 <Header />
 <main class='w-full flex flex-row flex-1 justify-start gap-8 p-10'>
-    <div class='flex flex-1'>
+    <div class='flex flex-2'>
         <Form />
     </div>
-    <div class='flex justify-end'>
+    <div class='flex flex-2 justify-end'>
         <Code />
     </div>
 </main>
