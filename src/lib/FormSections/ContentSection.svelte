@@ -1,13 +1,18 @@
 <script lang='ts'>
     import { tailwindConfig } from "../../store/store"
     import Section from "./common/Section.svelte"
+    import ContentInput from "./components/ContentInput.svelte"
 
     const addPath = () => {
         $tailwindConfig.content = [...$tailwindConfig.content, '']
     }
 
-    const deletePath = (index: number) => {
-        $tailwindConfig.content.splice(index, 1);
+    const handleUpdate = (event: CustomEvent) => {
+        $tailwindConfig.content[event.detail.index] = event.detail.value
+    }
+
+    const handleDelete = (event: CustomEvent) => {
+        $tailwindConfig.content.splice(event.detail.index, 1);
         $tailwindConfig.content = $tailwindConfig.content
     }
 </script>
@@ -19,10 +24,7 @@
     </div>
     <div slot='content'>
         {#each $tailwindConfig.content as path, index}
-            <div class='flex flex-row justify-between'>
-                <input class='w-full' type='text' bind:value={$tailwindConfig.content[index]} placeholder='type your path here' />
-                <button type='button' class='!bg-red-500' on:click={() => deletePath(index)}>Delete</button>
-            </div>
+            <ContentInput path={path} index={index} on:update={handleUpdate} on:delete={handleDelete} />
         {/each}
     </div>
 </Section>

@@ -6,30 +6,22 @@
     function addColor(colorName: string, colorValue: string) {
         tailwindConfig.update((config) => ({
             ...config,
-            colors: { ...config.colors, ...{ [colorName]: colorValue } },
+            colors: [ ...config.colors, { colorName: colorName, colorValue: colorValue } ],
         }))
     }
 
-    function handleUpdateColorName(event: CustomEvent) {
-        console.log(event.detail)
+    function handleUpdate(event: CustomEvent) {
         tailwindConfig.update((config) => {
-            config.colors = { ...config.colors, [event.detail.name]: config.colors[event.detail.currentName]}
-            delete config.colors[event.detail.currentName]
+            config.colors[event.detail.index].colorName = event.detail.name
+            config.colors[event.detail.index].colorValue = event.detail.value
 
             return config
         })
     }
 
-    function handleUpdateColorValue(event: CustomEvent) {
+    function handleDelete(event: CustomEvent) {
         tailwindConfig.update((config) => {
-            config.colors[event.detail.currentName] = event.detail.value
-            return config
-        })
-    }
-
-    function handleDeleteColor(event: CustomEvent) {
-        tailwindConfig.update((config) => {
-            delete config.colors[event.detail.currentName]
+            config.colors.splice(event.detail.index, 1)
             return config
         })
     }
@@ -42,8 +34,8 @@
             addColor((Object.keys($tailwindConfig.colors).length + 1).toString(), '#000000')} }>Add a color</button>
     </div>
     <div slot='content'>
-        {#each Object.entries($tailwindConfig.colors) as [currentColorName, currentColorValue]}
-            <ColorInput currentName={currentColorName} currentValue={currentColorValue} on:updateName={handleUpdateColorName} on:updateValue={handleUpdateColorValue} on:delete={handleDeleteColor} />
+        {#each $tailwindConfig.colors as color, index (index)}
+            <ColorInput currentName={color.colorName} currentValue={color.colorValue} index={index} on:update={handleUpdate} on:delete={handleDelete} />
         {/each}
     </div>
 </Section>
