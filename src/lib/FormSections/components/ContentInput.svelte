@@ -24,5 +24,5 @@
 
 <div class='flex flex-row justify-between'>
     <input class='w-full' type='text' bind:value={path} placeholder='type your path here' on:input={(e) => handleUpdate(index, e.currentTarget.value)} />
-    <button type='button' class='!bg-red-500' on:click={() => handleDelete(index)}>Delete</button>
+    <button type='button' class='!bg-red' on:click={() => handleDelete(index)}>Delete</button>
 </div>

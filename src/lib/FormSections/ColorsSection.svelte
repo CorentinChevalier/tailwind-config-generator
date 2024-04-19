@@ -1,5 +1,6 @@
 <script lang='ts'>
-    import { tailwindConfig } from "../../store/store"
+    import { Extendables, tailwindConfig } from "../../store/store"
+    import { handleToggleExtend } from "../../utils/toggle-extend.utils"
     import Section from "./common/Section.svelte"
     import ColorInput from "./components/ColorInput.svelte"
 
@@ -30,8 +31,13 @@
 <Section>
     <div slot='header' class='flex flex-row justify-between mb-6'>
         <h2>Colors</h2>
-        <button type='button' on:click={() => {
-            addColor((Object.keys($tailwindConfig.colors).length + 1).toString(), '#000000')} }>Add a color</button>
+        <div class='flex flex-row gap-4 items-center'>
+            <label class='extend-label'>
+                <span>Extend with base Tailwind colors</span>
+                <input type='checkbox' on:change={(e) => handleToggleExtend(Extendables.COLORS, e.currentTarget.checked)} />
+            </label>
+            <button type='button' on:click={() => { addColor('color' + (Object.keys($tailwindConfig.colors).length + 1).toString(), '#ffffff')} }>Add a color</button>
+        </div>
     </div>
     <div slot='content'>
         {#each $tailwindConfig.colors as color, index (index)}

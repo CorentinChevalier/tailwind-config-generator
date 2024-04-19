@@ -13,7 +13,14 @@ export default {
             'medium-slate-blue': '#715AFF',
             'raisin-black': '#272635',
             black: '#000000',
-            'red-500': '#ef4444',
+            'red-light': '#fecaca',
+            red: '#ef4444',
+            'green-light': '#bbf7d0',
+            green: '#22c55e',
+            'yellow-light': '#fef08a',
+            yellow: '#eab308',
+            'blue-light': '#bfdbfe',
+            blue: '#3b82f6',
         },
         extend: {
             screens: {
