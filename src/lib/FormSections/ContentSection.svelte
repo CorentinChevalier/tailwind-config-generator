@@ -1,6 +1,7 @@
 <script lang='ts'>
     import { tailwindConfig } from "../../store/store"
     import Section from "./common/Section.svelte"
+    import SectionHeader from "./common/SectionHeader.svelte"
     import ContentInput from "./components/ContentInput.svelte"
 
     const addPath = () => {
@@ -18,9 +19,8 @@
 </script>
 
 <Section>
-    <div slot='header' class='flex flex-row justify-between'>
-        <h2>Content</h2>
-        <button type='button' on:click={addPath}>Add a path</button>
+    <div slot='header'>
+        <SectionHeader title='Content' addButtonTitle='Add a path' addElement={addPath} />
     </div>
     <div slot='content'>
         {#each $tailwindConfig.content as path, index}
