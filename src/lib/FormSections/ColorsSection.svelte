@@ -5,10 +5,10 @@
     import SectionHeader from "./common/SectionHeader.svelte"
     import ColorInput from "./components/ColorInput.svelte"
 
-    function addColor(colorName: string, colorValue: string) {
+    function addColor() {
         tailwindConfig.update((config) => ({
             ...config,
-            colors: [ ...config.colors, { colorName: colorName, colorValue: colorValue } ],
+            colors: [ ...config.colors, { colorName: '', colorValue: '' }],
         }))
     }
 
@@ -31,7 +31,7 @@
 
 <Section>
     <div slot='header'>
-        <SectionHeader title='Colors' hasExtendOption extendableField={Extendables.COLORS} addButtonTitle='Add a color' addElement={() => { addColor('color' + (Object.keys($tailwindConfig.colors).length + 1).toString(), '#ffffff')}} />
+        <SectionHeader title='Colors' hasExtendOption extendableField={Extendables.COLORS} addButtonTitle='Add a color' addElement={addColor} />
     </div>
     <div slot='content'>
         {#each $tailwindConfig.colors as color, index (index)}

@@ -83,11 +83,11 @@
 
     /*inputs checked*/
     input[type=checkbox]:checked {
-        @apply flex justify-center items-center;
+        @apply flex justify-center items-center bg-green;
     }
     input[type=checkbox]:checked::after {
         content: "\2713";
-        @apply text-medium-slate-blue;
+        @apply text-white;
     }
 
     /*BUTTONS*/

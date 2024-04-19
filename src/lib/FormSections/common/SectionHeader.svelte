@@ -6,6 +6,7 @@
     export let title: string
     export let hasExtendOption: boolean = false
     export let extendableField: Extendables = Extendables.COLORS
+    export let extended: boolean = false
     export let addButtonTitle: string
     export let addElement: (args: any) => void
 </script>
@@ -16,7 +17,7 @@
         {#if hasExtendOption && extendableField}
         <label class='extend-label'>
             <span>Extend with base Tailwind theming</span>
-            <input type='checkbox' on:change={(e) => handleToggleExtend(extendableField, e.currentTarget.checked)} />
+            <input type='checkbox' on:change={(e) => handleToggleExtend(extendableField, e.currentTarget.checked)} bind:checked={extended} />
         </label>
         {/if}
         <button type='button' on:click={addElement}>{addButtonTitle}</button>
