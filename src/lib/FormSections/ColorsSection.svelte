@@ -31,7 +31,13 @@
 
 <Section>
     <div slot='header'>
-        <SectionHeader title='Colors' hasExtendOption extendableField={Extendables.COLORS} addButtonTitle='Add a color' addElement={addColor} />
+        <SectionHeader 
+            title='Colors' 
+            description='You can define here the different colors for your tailwindcss theme, you can replace or extend the base tailwind theming with your theme.' 
+            hasExtendOption 
+            extendableField={Extendables.COLORS} 
+            addButtonTitle='Add a color' 
+            addElement={addColor} />
     </div>
     <div slot='content'>
         {#each $tailwindConfig.colors as color, index (index)}

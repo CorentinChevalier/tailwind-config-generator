@@ -4,6 +4,7 @@
 
     //props
     export let title: string
+    export let description: string | undefined = undefined
     export let hasExtendOption: boolean = false
     export let extendableField: Extendables = Extendables.COLORS
     export let extended: boolean = false
@@ -23,4 +24,8 @@
         <button type='button' on:click={addElement}>{addButtonTitle}</button>
     </div>
 </div>
-
+{#if description}
+<p class='text-sm'>
+{description}
+</p>
+{/if}

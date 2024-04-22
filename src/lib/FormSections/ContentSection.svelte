@@ -20,7 +20,7 @@
 
 <Section>
     <div slot='header'>
-        <SectionHeader title='Content' addButtonTitle='Add a path' addElement={addPath} />
+        <SectionHeader title='Content' description='You can define here the paths of files where the tailwind config should apply.' addButtonTitle='Add a path' addElement={addPath} />
     </div>
     <div slot='content'>
         {#each $tailwindConfig.content as path, index}
