@@ -3,6 +3,7 @@ import { writable } from 'svelte/store'
 export enum Extendables {
     COLORS = 'colors',
     SCREENS = 'screens',
+    SPACING = 'spacing',
 }
 
 export interface ConfigType {
@@ -10,6 +11,7 @@ export interface ConfigType {
     content: Array<string>
     colors: Array<{ colorName: string; colorValue: string }>
     screens: Array<{ breakpointName: string; breakpointValue: string }>
+    spacing: Array<{ spacingName: string; spacingValue: string }>
 }
 
 // Tailwind Config file object store
@@ -22,6 +24,10 @@ export const tailwindConfig = writable<ConfigType>({
         },
         {
             field: Extendables.SCREENS,
+            value: false,
+        },
+        {
+            field: Extendables.SPACING,
             value: false,
         },
     ],
@@ -71,6 +77,12 @@ export const tailwindConfig = writable<ConfigType>({
         {
             breakpointName: '4k',
             breakpointValue: '2560px',
+        },
+    ],
+    spacing: [
+        {
+            spacingName: '1',
+            spacingValue: '2px',
         },
     ],
 })

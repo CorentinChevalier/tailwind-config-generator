@@ -2,6 +2,7 @@
     import ColorsSection from "./FormSections/ColorsSection.svelte"
     import ContentSection from "./FormSections/ContentSection.svelte"
     import ScreensSection from "./FormSections/ScreensSection.svelte"
+    import SpacingSection from "./FormSections/SpacingSection.svelte"
 
 </script>
 
@@ -9,4 +10,5 @@
     <ContentSection />
     <ColorsSection />
     <ScreensSection />
+    <SpacingSection />
 </form>

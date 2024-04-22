@@ -30,7 +30,7 @@
     <div slot='header'>
         <SectionHeader 
             title='Screen breakpoints'
-            description='You can define here your screen breakpoints for responsiveness.'
+            description='You can define here your screen breakpoints for responsiveness or extend the base breakpoints from tailwind.'
             hasExtendOption extendableField={Extendables.SCREENS} 
             extended={$tailwindConfig.extend[$tailwindConfig.extend.findIndex(((extend) => extend.field === Extendables.SCREENS))].value} 
             addButtonTitle='Add a breakpoint' 
